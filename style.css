@@ -86,13 +86,23 @@ p {
   padding: 0px;
   margin: 0 10%;
 }
+.butt {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border: none;
+  border: 2px solid #094b5e;
+  border-radius: 8px;
+  padding: 0px;
+  margin: 0 10%;
+}
 h2 {
   font-family: "Times New Roman", Times, serif;
   color: black;
 }
 #effet {
   display: block;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 #accordion h2 {
   border: 2px solid black;
@@ -135,4 +145,7 @@ h2 {
   float: right;
   font-size: 28px;
   font-weight: bold;
+}
+.plex {
+  display: flex;
 }
