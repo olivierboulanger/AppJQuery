@@ -12,7 +12,7 @@ input {
   border: 2px solid #094b5e;
   border-radius: 8px;
   padding: 0px;
-  margin: 0 10%;
+  margin: 10px 10%;
 }
 
 input::placeholder {
