@@ -42,7 +42,7 @@ $(function() {
 function openModal(id) {
   $("#modal").css("display", "block");
   $.ajax({
-    url: "http://www.omdbapi.com/?apikey=74556bd0&i=" + id,
+    url: "https://www.omdbapi.com/?apikey=74556bd0&i=" + id,
     success: function(detailMovie) {
       console.log(detailMovie);
       const detailMovieList = $("#modal-content");
@@ -86,7 +86,7 @@ function getMovies(search) {
     const select = $("#select").val();
     $.ajax({
       url:
-        "http://www.omdbapi.com/?apikey=74556bd0&s=" +
+        "https://www.omdbapi.com/?apikey=74556bd0&s=" +
         search +
         "&type=" +
         select,
