@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="app">
+            <div id="contenu">
+                    <form>
+                      <input name="search" placeholder="Votre recherche ?" v-model="search">
+                      <button type="submit" v-on:click="greet">Submit</button>
+                      <div class="container-fluid">
+                        <div class="row">
+                          <div v-for="movie in movies" :key="movie.id" class="col-sm-12 col-md-6 col-lg-4">
+                            <h2>{{movie.Title}}</h2>
+                            <p>{{movie.Year}}</p>
+                            <img :src="movie.Poster">
+                            <button class="little" @click="movieDetails">Détails</button>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  </div>
+        </div>
+</body>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data() {
+    return {
+      search: "",
+      movies: [],
+      info: null
+    };
+  },
+  methods: {
+    greet: function(e) {
+      if (this.search=="") {
+        alert("saisissez un titre !")
+      }
+      else {
+        e.preventDefault();
+      axios
+        .get(`http://www.omdbapi.com/?apikey=74556bd0&s=${this.search}`)
+        .then(response => {
+          this.movies = response.data.Search;
+          console.log(this.movies);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+      },
+          movieDetails: function(e) {
+      e.preventDefault();
+      alert("Yes I can");
+    }
+
+  }
+        }
+    );
+</script>
+<style scoped>
+body {
+  background-color: #247e98;
+
+}
+input {
+  width: 80%;
+  height: 70px;
+  font-size: 50px;
+  background-color: #3aa7c6;
+  border: none;
+  border: 2px solid #094b5e;
+  border-radius: 8px;
+  padding: 0px;
+  margin: 0 10%;
+}
+button {
+  width: 200px;
+  height: 50px;
+  font-size: 30px;
+  background-color: #3aa7c6;
+  border: none;
+  border: 2px solid #094b5e;
+  border-radius: 8px;
+  padding: 0px;
+  margin: 0 10%;
+}
+input::placeholder {
+  color: black;
+  font-size: 50px;
+  font-family: "Montserrat", sans-serif;
+}
+#contenu {
+  background-color: #247e98;
+  color: white;
+}
+#contenu img {
+  color: white;
+  border-radius: 10px;
+  transition: all ease-in-out 0.5s;
+}
+#contenu img:hover {
+  transform: scale(1.1);
+  box-shadow: 8px 8px #094b5e;
+}
+h2 {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 30px;
+}
+p {
+  color: lightskyblue;
+  margin: 20px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 18px;
+}
+
+.little {
+  background-color: #3aa7c6;
+  border-radius: 10px;
+  width: 70px;
+  font-size: 15px;
+}
+</style>
+
+</html>
