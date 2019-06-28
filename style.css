@@ -15,6 +15,10 @@ input {
   margin: 10px 10%;
 }
 
+.modal {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 input::placeholder {
   color: black;
   font-size: 50px;
@@ -76,7 +80,7 @@ p {
 }
 
 #select {
-  width: 30%;
+  width: 40%;
   height: 50px;
   font-size: 40px;
   background-color: #3aa7c6;
@@ -128,16 +132,16 @@ h2 {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(252, 235, 198);
   background-color: rgba(0, 0, 0, 0.4);
 }
 #modal-body {
-  background-color: #fefefe;
+  background-color: rgb(247, 229, 170);
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-  height: 70%;
+  width: 60%; /* Could be more or less, depending on screen size */
+  height: 40%;
   color: #094b5e;
 }
 .close {
@@ -148,4 +152,21 @@ h2 {
 }
 .plex {
   display: flex;
+}
+.betn {
+  background-color: yellow;
+  color: black;
+}
+.Zimg {
+  width: 20%;
+  height: 30%;
+  float: left;
+  margin: 20px;
+}
+#ui-id-7 {
+  list-style-type: none;
+  background-color: #3aa7c6;
+  color: black;
+  width: 50%;
+  position: absolute;
 }

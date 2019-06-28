@@ -46,7 +46,10 @@ function openModal(id) {
     success: function(detailMovie) {
       console.log(detailMovie);
       const detailMovieList = $("#modal-content");
-      const detailMovieElement = $("<div></div>");
+      const detailMovieElement = $("<div></div>").addClass("modal");
+      const detailMoviePoster = $("<img>")
+        .attr("src", "${detailMovie.Poster}")
+        .addClass("Zimg");
       const detailMovieActors = $(`<h3>Acteurs : ${detailMovie.Actors}</h3>`);
       const detailMovieGenre = $(`<h3>Genre : ${detailMovie.Genre}</h3>`);
       const detailMovieimdbRating = $(
@@ -56,11 +59,14 @@ function openModal(id) {
       const detailMovieDirector = $(
         `<h3>Réalisateur : ${detailMovie.Director}</h3>`
       );
+      const button = $("<button>iMDB</button>").addClass("betn");
       detailMovieElement.append(detailMovieActors);
+      detailMovieElement.append(detailMoviePoster);
       detailMovieElement.append(detailMovieGenre);
       detailMovieElement.append(detailMovieimdbRating);
       detailMovieElement.append(detailMovieRuntime);
       detailMovieElement.append(detailMovieDirector);
+      detailMovieElement.append(button);
       detailMovieList.append(detailMovieElement);
     }
   });
@@ -140,3 +146,19 @@ function getMovies(search) {
     });
   }
 }
+$(function() {
+  var availableTags = [
+    "Avengers",
+    "Batman",
+    "Thor",
+    "Iron man",
+    "Spider-man",
+    "Ant-man",
+    "The wasp",
+    "hulk",
+    "Guardian"
+  ];
+  $(".tags").autocomplete({
+    source: availableTags
+  });
+});
